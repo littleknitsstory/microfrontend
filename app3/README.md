@@ -1,15 +1,6 @@
-# 🚀 Welcome to your new awesome project!
 
-This project has been created using **webpack-cli**, you can now run
+app3 и app4 связаны между собой, без запущенного app3 app4 не работает
 
-```
-npm run build
-```
+открыть сразу два терминала для каждой app3 и app4 командами cd app3 и cd app4 соответственно
 
-or
-
-```
-yarn build
-```
-
-to bundle your application
+запускать командой - npm install && npm run start
