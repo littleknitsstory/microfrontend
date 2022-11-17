@@ -1,0 +1,67 @@
+@import "./_mixins";
+body {
+  color: $dark;
+  font-family: $ffHelv;
+  background: $white;
+}
+
+a {
+  color: $dark;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    color: #e0c0c3;
+  }
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: 36px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: $ffHelv;
+}
+
+.author__txt {
+  font-weight: bold;
+}
+
+// ===media lg==
+h2 {
+  @include lg {
+    font-size: 30px;
+  }
+}
+
+// ===media md ===
+h2 {
+  @include md {
+    font-size: $fontSize3;
+  }
+}
+
+h3 {
+  @include md {
+    font-size: $fontSize2;
+  }
+}

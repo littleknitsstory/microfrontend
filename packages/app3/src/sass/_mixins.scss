@@ -1,0 +1,24 @@
+@import './_variables';
+@mixin xl {
+    @media screen and (min-width: $xl) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media screen and (min-width: $lg) and (max-width: $xl - 1) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (min-width: $md) and (max-width: $lg - 1) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @media screen and (min-width: $md) and (max-width: $xs - 1) {
+        @content;
+    }
+}

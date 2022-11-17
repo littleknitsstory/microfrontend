@@ -1,0 +1,18 @@
+@import 'global';
+
+.#{$namespace}mod- {
+  &text-center {
+    text-align: center;
+  }
+  &fill {
+    width: 100%;
+  }
+
+  &pointer {
+    cursor: pointer;
+  }
+
+  &text-normal {
+    font-weight: normal !important;
+  }
+}
