@@ -1,2 +1,6 @@
-# microfrontend
-here
+
+Все аппы в одной папке packages.
+Запустить все аппы сразу - в корневой папке microfrontend выполнить команду - npm install && npm run start.
+
+В браузере откроются все аппы
+
