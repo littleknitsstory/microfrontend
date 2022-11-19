@@ -1,12 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useLksService from "./api";
-import "./css/menu.css";
+import "./css/menu_style.css";
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
   const { getMenu } = useLksService();
+
   function isExternal(url) {
     return url.search(/http(s?):\/\//) > -1;
   }
@@ -17,22 +18,26 @@ const Menu = () => {
 
   return (
     <>
-      <h1>Hello LKS!</h1>
-      <nav>
-        <ul className="links">
-          {menu.map((item) => (
-            <li key={item.id}>
-              {isExternal(item.url) ? (
-                <a href={item.url} target="_blank">
-                  {item.name}
-                </a>
-              ) : (
-                <Link to={item.url}>{item.name}</Link>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <h1 className="styleColor">Hello LKS!</h1>
+      <div className="links">
+        <nav>
+          <ul>
+            {menu.map((item) => (
+              <li key={item.id}>
+                {isExternal(item.url) ? (
+                  <a href={item.url} target="_blank">
+                    {item.name}
+                  </a>
+                ) : (
+                  <NavLink to={item.url} className="nav-current">
+                    {item.name}
+                  </NavLink>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </>
   );
 };

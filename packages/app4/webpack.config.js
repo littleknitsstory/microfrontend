@@ -1,15 +1,14 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { ModuleFederationPlugin } = require('webpack').container;
-
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   entry: "./src/index",
   mode: "development",
   devServer: {
     port: 3004,
-    open: true
+    open: true,
   },
   module: {
     rules: [
@@ -27,11 +26,15 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["css-loader", "postcss-loader"],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: "asset",
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
@@ -40,11 +43,15 @@ module.exports = {
       template: "./public/index.html",
     }),
     new ModuleFederationPlugin({
-      name: 'app4',
+      name: "app4",
       remotes: {
         app3: "app3@http://localhost:3003/remoteEntry.js",
       },
-      shared: {react: {singleton: true, eager: true}, "react-dom": {singleton: true, requiredVersion: '^18.2.0'}},
+      shared: {
+        react: { singleton: true, eager: true },
+        "react-dom": { singleton: true, requiredVersion: "^18.2.0" },
+        "react-router-dom": { eager: true, singleton: true },
+      },
     }),
   ],
   resolve: {

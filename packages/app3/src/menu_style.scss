@@ -1,34 +1,48 @@
-@import "../lks-fw/_global";
-
-ul {
-  list-style-type: none;
+.styleColor {
+  color: blue;
+  &_red {
+    color: red;
+  }
 }
 
-nav {
-  padding: 20px 15%;
-  flex: 2;
-  backdrop-filter: blur(50px);
-  background: rgba(255, 255, 255, 0.8);
-  display: flex;
-  position: sticky;
-  align-items: center;
-  justify-content: center;
-  position: -webkit-sticky;
-  top: 0; /* required */
-  z-index: 50;
-  margin-bottom: 10px;
-}
+$color-main: #e0c0c3;
 
 .links {
   order: 1;
   color: #545353;
   text-transform: uppercase;
   justify-content: space-between;
+  ul {
+    list-style-type: none;
+  }
+
+  nav {
+    padding: 20px 15%;
+    flex: 2;
+    backdrop-filter: blur(50px);
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    position: sticky;
+    align-items: center;
+    justify-content: center;
+    position: -webkit-sticky;
+    top: 0; /* required */
+    z-index: 50;
+    margin-bottom: 10px;
+  }
   li {
     margin: 0 1vw;
   }
   a {
     color: #545353 !important;
+    text-decoration: none;
+  }
+
+  nav > ul {
+    margin: 0 20px;
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
   }
 }
 
@@ -65,15 +79,8 @@ nav {
     padding: 0 1vw;
   }
 }
-.nav-current {
+.nav-current.active {
   border-bottom: 2px solid $color-main;
-}
-
-nav > ul {
-  margin: 0 20px;
-  flex: 1;
-  display: flex;
-  justify-content: space-around;
 }
 
 @media screen and (max-width: 1192px) {
