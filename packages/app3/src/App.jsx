@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Menu from "./Menu";
-import Blog from "./Blog";
+import Menu from "./components/Menu";
+import Blog from "./components/Blog";
 
 function App() {
   return (

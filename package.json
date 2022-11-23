@@ -9,6 +9,7 @@
     "build": "lerna run build"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "webpack-cli": "^5.0.0"
   }
 }

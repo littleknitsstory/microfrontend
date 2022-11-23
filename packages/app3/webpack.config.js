@@ -46,7 +46,7 @@ module.exports = {
       name: "app3",
       filename: "remoteEntry.js",
       exposes: {
-        "./Menu": "./src/Menu.jsx",
+        "./Menu": "./src/components/Menu.jsx",
       },
       shared: {
         react: { eager: true, singleton: true },
