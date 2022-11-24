@@ -28,14 +28,14 @@ fi
 echo "${BUILD_COMMAND} will be used to build containers."
 
 for app in ./packages/*; do
-    APP_VERSION=$(cat ${app}/package.json | jq -r .version)
+    APP_VERSION=$(jq -r .version < "${app}/package.json")
     APP_NAME="${app##*/}"
     CONTAINER_IMAGE_TAG="${CONTAINER_REGISTRY_ADDRESS}/lks-frontend-${APP_NAME}:${APP_VERSION}"
     "${BUILD_COMMAND}" build -t "${CONTAINER_IMAGE_TAG}" -f "${app}/Dockerfile"
     if [[ "${CONTAINER_REGISTRY_ADDRESS}" != "localhost" ]]; then
         "${BUILD_COMMAND}" push "${CONTAINER_IMAGE_TAG}"
     fi
-    export APP${APP_NAME: -1}_IMAGE_TAG="${CONTAINER_IMAGE_TAG}"
+    export "APP${APP_NAME: -1}_IMAGE_TAG=${CONTAINER_IMAGE_TAG}"
 done
 
 envsubst > docker-compose.yml < docker-compose.yml.template
