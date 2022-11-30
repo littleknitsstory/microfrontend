@@ -1,7 +1,7 @@
 import { useHttp } from "./http.hook";
 
 const useLksService = () => {
-  const { request } = useHttp();
+  const { request, error, setError } = useHttp();
   const _apiBase = "http://dev.backend.littleknitsstory.com:26363/api/v1/";
 
   const getMenu = async () => {
@@ -9,7 +9,7 @@ const useLksService = () => {
     return res;
   };
 
-  return { getMenu };
+  return { getMenu, error, setError };
 };
 
 export default useLksService;

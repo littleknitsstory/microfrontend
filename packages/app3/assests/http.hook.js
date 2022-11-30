@@ -1,6 +1,7 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 export const useHttp = () => {
+  const [error, setError] = useState(false);
   const request = useCallback(
     async (
       url,
@@ -19,11 +20,12 @@ export const useHttp = () => {
 
         return data;
       } catch (e) {
+        setError(true);
         throw e;
       }
     },
     []
   );
 
-  return { request };
+  return { request, error, setError };
 };
