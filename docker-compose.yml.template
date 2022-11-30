@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  app1:
+    container_name: app1
+    image: "${APP1_IMAGE_TAG}"
+    depends_on:
+      - app2
+    ports:
+      - "3001:80/tcp"
+    read_only: true
+    restart: on-failure
+    tmpfs:
+      - /var/log
+      - /var/run
+      - /var/cache
+
+  app2:
+    container_name: app2
+    image: "${APP2_IMAGE_TAG}"
+    ports:
+      - "3002:80/tcp"
+    read_only: true
+    restart: on-failure
+    tmpfs:
+      - /var/log
+      - /var/run
+      - /var/cache
+
+  app3:
+    container_name: app3
+    image: "${APP3_IMAGE_TAG}"
+    ports:
+      - "3003:80/tcp"
+    read_only: true
+    restart: on-failure
+    tmpfs:
+      - /var/log
+      - /var/run
+      - /var/cache
+
+  app4:
+    container_name: app4
+    image: "${APP4_IMAGE_TAG}"
+    ports:
+      - "3004:80/tcp"
+    read_only: true
+    restart: on-failure
+    tmpfs:
+      - /var/log
+      - /var/run
+      - /var/cache
